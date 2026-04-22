@@ -41,6 +41,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-sans antialiased bg-background">
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(){try{var n=History&&History.prototype&&History.prototype.pushState;var r=History&&History.prototype&&History.prototype.replaceState;if(!n||!r||!window||!window.history)return;var p=window.history.pushState;var q=window.history.replaceState;window.history.pushState=function(a,b,c){try{return p.call(this,a,b,c)}catch(e){return n.call(this,a,b,c)}};window.history.replaceState=function(a,b,c){try{return q.call(this,a,b,c)}catch(e){return r.call(this,a,b,c)}}}catch(_){}})();',
+          }}
+        />
         <I18nProvider>
           {children}
         </I18nProvider>

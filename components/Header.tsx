@@ -79,11 +79,11 @@ export function Header() {
                 <span className="block font-serif text-xl md:text-2xl font-bold tracking-[0.14em] text-foreground transition-opacity duration-300 group-hover:opacity-70">
                   BOURTOUKANE
                 </span>
-                <span className="block mt-1 text-[10px] md:text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                <span className="block mt-1 text-[10px] md:text-xs font-medium italic uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
                   by Chez AMA&apos;S
                 </span>
               </span>
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300" />
             </Link>
 
             {/* Desktop Navigation */}
