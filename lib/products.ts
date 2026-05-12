@@ -42,7 +42,7 @@ export const products: Product[] = [
     images: ["/images/products/ankara-gold.jpg", "/images/products/ankara-gold-2.jpg"],
     category: "sunglasses",
     material: "Acétate Premium",
-    origin: "Côte d'Ivoire",
+    origin: "Togo",
     isBestseller: true
   },
   {
@@ -63,7 +63,7 @@ export const products: Product[] = [
     images: ["/images/products/kente-royal.jpg", "/images/products/kente-royal-2.jpg"],
     category: "sunglasses",
     material: "Acétate Premium",
-    origin: "Côte d'Ivoire",
+    origin: "Togo",
     isNew: true
   },
   {
@@ -84,7 +84,7 @@ export const products: Product[] = [
     images: ["/images/products/bogolan-earth.jpg", "/images/products/bogolan-earth-2.jpg"],
     category: "optical",
     material: "Acétate Premium",
-    origin: "Côte d'Ivoire"
+    origin: "Togo"
   },
   {
     id: "kitenge-sunset",
@@ -101,10 +101,10 @@ export const products: Product[] = [
       en: "Tanzanian Kitenge"
     },
     price: 92000,
-    images: ["/images/products/kitenge-sunset.jpg", "/images/products/kitenge-sunset-2.jpg"],
+    images: ["/images/products/kitenge-sunset.jpg", "/images/products/kitenge-sunset-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
-    origin: "Côte d'Ivoire",
+    origin: "Togo",
     isNew: true
   },
   {
@@ -125,7 +125,7 @@ export const products: Product[] = [
     images: ["/images/products/wax-indigo.jpg", "/images/products/wax-indigo-2.jpg"],
     category: "optical",
     material: "Acétate Premium",
-    origin: "Côte d'Ivoire",
+    origin: "Togo",
     isBestseller: true
   },
   {
@@ -146,7 +146,7 @@ export const products: Product[] = [
     images: ["/images/products/adire-ocean.jpg", "/images/products/adire-ocean-2.jpg"],
     category: "limited",
     material: "Acétate Premium",
-    origin: "Côte d'Ivoire"
+    origin: "Togo"
   },
   {
     id: "sahel-gold",
@@ -166,7 +166,7 @@ export const products: Product[] = [
     images: ["/images/products/sahel-gold.jpg", "/images/products/sahel-gold-2.jpg"],
     category: "limited",
     material: "Acétate & Métal",
-    origin: "Côte d'Ivoire",
+    origin: "Togo",
     isNew: true
   },
   {
@@ -187,6 +187,6 @@ export const products: Product[] = [
     images: ["/images/products/faso-dan-fani.jpg", "/images/products/faso-dan-fani-2.jpg"],
     category: "optical",
     material: "Acétate Premium",
-    origin: "Côte d'Ivoire"
+    origin: "Togo"
   }
 ]
