@@ -78,9 +78,9 @@ export default function AboutPage() {
             <div 
               className={`relative transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
             >
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden group shadow-xl">
+              <div className="relative aspect-4/5 rounded-2xl overflow-hidden group shadow-xl">
                 <Image
-                  src="/images/about-hero.jpg"
+                  src="/images/about-hero.png"
                   alt="Our founder"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

@@ -32,7 +32,7 @@ const previewByFrameStyle: Record<string, string> = {
   aviator: '/images/products/sahel-gold.jpg',
   wayfarer: '/images/products/wax-indigo.jpg',
   round: '/images/products/ankara-gold.jpg',
-  'cat-eye': '/images/products/kitenge-sunset.jpg',
+  'cat-eye': '/images/products/kitenge-sunset.png',
   oversized: '/images/products/faso-dan-fani.jpg',
 }
 

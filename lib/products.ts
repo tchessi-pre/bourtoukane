@@ -27,8 +27,8 @@ export const products: Product[] = [
   {
     id: "ankara-gold",
     name: {
-      fr: "Ankara Or",
-      en: "Ankara Gold"
+      fr: "Lagos",
+      en: "Lagos"
     },
     description: {
       fr: "Ces lunettes emblématiques allient l'audace des motifs Ankara traditionnels à des touches dorées raffinées. Le tissu wax orange et ocre évoque les couchers de soleil africains, tandis que la monture ronde offre un style intemporel.",
@@ -38,8 +38,8 @@ export const products: Product[] = [
       fr: "Ankara du Nigeria",
       en: "Nigerian Ankara"
     },
-    price: 89000,
-    images: ["/images/products/ankara-gold.jpg", "/images/products/ankara-gold-2.jpg"],
+    price: 25000,
+    images: ["/images/products/ankara-gold.jpg", "/images/products/ankara-gold-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
     origin: "Togo",
@@ -48,8 +48,8 @@ export const products: Product[] = [
   {
     id: "kente-royal",
     name: {
-      fr: "Kente Royal",
-      en: "Kente Royal"
+      fr: "Accra",
+      en: "Accra"
     },
     description: {
       fr: "Inspirées du prestigieux tissu Kente ghanéen, ces lunettes sont un hommage à la royauté africaine. Les motifs géométriques verts et dorés symbolisent la prospérité et la sagesse.",
@@ -59,8 +59,8 @@ export const products: Product[] = [
       fr: "Kente du Ghana",
       en: "Ghanaian Kente"
     },
-    price: 95000,
-    images: ["/images/products/kente-royal.jpg", "/images/products/kente-royal-2.jpg"],
+    price: 25000,
+    images: ["/images/products/kente-royal.jpg", "/images/products/kente-royal-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
     origin: "Togo",
@@ -69,8 +69,8 @@ export const products: Product[] = [
   {
     id: "bogolan-earth",
     name: {
-      fr: "Bogolan Terre",
-      en: "Bogolan Earth"
+      fr: "Bamako",
+      en: "Bamako"
     },
     description: {
       fr: "Le Bogolan, tissu ancestral du Mali, prend vie sur ces montures ovales. Les teintes terracotta et brunes rappellent les terres rouges d'Afrique, créant une pièce authentique et élégante.",
@@ -80,8 +80,8 @@ export const products: Product[] = [
       fr: "Bogolan du Mali",
       en: "Malian Bogolan"
     },
-    price: 85000,
-    images: ["/images/products/bogolan-earth.jpg", "/images/products/bogolan-earth-2.jpg"],
+    price: 25000,
+    images: ["/images/products/bogolan-earth.jpg", "/images/products/bogolan-earth-2.png"],
     category: "optical",
     material: "Acétate Premium",
     origin: "Togo"
@@ -89,8 +89,8 @@ export const products: Product[] = [
   {
     id: "kitenge-sunset",
     name: {
-      fr: "Kitenge Coucher de Soleil",
-      en: "Kitenge Sunset"
+      fr: "Nairobi",
+      en: "Nairobi"
     },
     description: {
       fr: "Ces lunettes cat-eye capturent l'essence vibrante du Kitenge est-africain. Les motifs floraux aux teintes chaudes créent un accessoire audacieux parfait pour affirmer son style.",
@@ -100,7 +100,7 @@ export const products: Product[] = [
       fr: "Kitenge de Tanzanie",
       en: "Tanzanian Kitenge"
     },
-    price: 92000,
+    price: 25000,
     images: ["/images/products/kitenge-sunset.jpg", "/images/products/kitenge-sunset-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
@@ -110,8 +110,8 @@ export const products: Product[] = [
   {
     id: "wax-indigo",
     name: {
-      fr: "Wax Indigo",
-      en: "Wax Indigo"
+      fr: "Dakar",
+      en: "Dakar"
     },
     description: {
       fr: "Le bleu indigo, teinte emblématique de l'Afrique de l'Ouest, sublime ces montures rectangulaires. Un choix raffiné pour ceux qui recherchent l'élégance dans la simplicité.",
@@ -121,8 +121,8 @@ export const products: Product[] = [
       fr: "Wax Hollandais",
       en: "Dutch Wax"
     },
-    price: 78000,
-    images: ["/images/products/wax-indigo.jpg", "/images/products/wax-indigo-2.jpg"],
+    price: 25000,
+    images: ["/images/products/wax-indigo.jpg", "/images/products/wax-indigo-2.png"],
     category: "optical",
     material: "Acétate Premium",
     origin: "Togo",
@@ -131,8 +131,8 @@ export const products: Product[] = [
   {
     id: "adire-ocean",
     name: {
-      fr: "Adire Océan",
-      en: "Adire Ocean"
+      fr: "Zanzibar",
+      en: "Zanzibar"
     },
     description: {
       fr: "L'Adire, technique de teinture yoruba, inspire ces lunettes rondes aux nuances de bleu profond. Chaque pièce est unique, comme les vagues de l'océan Atlantique.",
@@ -142,8 +142,8 @@ export const products: Product[] = [
       fr: "Adire du Nigeria",
       en: "Nigerian Adire"
     },
-    price: 88000,
-    images: ["/images/products/adire-ocean.jpg", "/images/products/adire-ocean-2.jpg"],
+    price: 25000,
+    images: ["/images/products/adire-ocean.png", "/images/products/adire-ocean-2.png"],
     category: "limited",
     material: "Acétate Premium",
     origin: "Togo"
@@ -151,8 +151,8 @@ export const products: Product[] = [
   {
     id: "sahel-gold",
     name: {
-      fr: "Sahel Doré",
-      en: "Sahel Gold"
+      fr: "Marrakech",
+      en: "Marrakech"
     },
     description: {
       fr: "Inspirées des dunes dorées du Sahel, ces lunettes aviateur combinent élégance intemporelle et motifs géométriques traditionnels. Une pièce statement pour les esprits audacieux.",
@@ -162,8 +162,8 @@ export const products: Product[] = [
       fr: "Bazin du Sénégal",
       en: "Senegalese Bazin"
     },
-    price: 98000,
-    images: ["/images/products/sahel-gold.jpg", "/images/products/sahel-gold-2.jpg"],
+    price: 25000,
+    images: ["/images/products/sahel-gold.jpg", "/images/products/sahel-gold-2.png"],
     category: "limited",
     material: "Acétate & Métal",
     origin: "Togo",
@@ -172,8 +172,8 @@ export const products: Product[] = [
   {
     id: "faso-dan-fani",
     name: {
-      fr: "Faso Dan Fani",
-      en: "Faso Dan Fani"
+      fr: "Ouagadougou",
+      en: "Ouagadougou"
     },
     description: {
       fr: "Le Faso Dan Fani, tissu emblématique du Burkina Faso, orne ces lunettes carrées modernes. Les bandes colorées traditionnelles créent un accessoire distinctif et culturellement riche.",
@@ -183,10 +183,31 @@ export const products: Product[] = [
       fr: "Faso Dan Fani",
       en: "Faso Dan Fani"
     },
-    price: 82000,
-    images: ["/images/products/faso-dan-fani.jpg", "/images/products/faso-dan-fani-2.jpg"],
+    price: 25000,
+    images: ["/images/products/faso-dan-fani.jpg", "/images/products/faso-dan-fani-2.png"],
     category: "optical",
     material: "Acétate Premium",
     origin: "Togo"
+  },
+  {
+    id: "abidjan",
+    name: {
+      fr: "Abidjan",
+      en: "Abidjan"
+    },
+    description: {
+      fr: "Inspirées de l'énergie d'Abidjan, ces lunettes associent une silhouette moderne à un tissu wax vibrant. Un modèle élégant, pensé pour le quotidien comme pour les grandes occasions.",
+      en: "Inspired by Abidjan’s energy, these glasses combine a modern silhouette with vibrant wax fabric. An elegant model designed for everyday wear and special occasions."
+    },
+    fabric: {
+      fr: "Wax de Côte d’Ivoire",
+      en: "Ivorian Wax"
+    },
+    price: 25000,
+    images: ["/images/products/abidjan.png", "/images/products/abidjan-2.png"],
+    category: "sunglasses",
+    material: "Acétate Premium",
+    origin: "Côte d'Ivoire",
+    isNew: true
   }
 ]
