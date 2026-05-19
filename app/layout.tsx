@@ -16,14 +16,86 @@ const inter = Inter({
   display: 'swap',
 })
 
+const metadataBase =
+  process.env.NEXT_PUBLIC_SITE_URL
+    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+    : process.env.VERCEL_URL
+      ? new URL(`https://${process.env.VERCEL_URL}`)
+      : undefined
+
+const siteName = "BOURTOUKANE by Chez Ama's"
+const defaultTitle = 'BOURTOUKANE | Montures artisanales en tissus africain'
+const defaultDescription =
+  "Lunettes artisanales africaines en tissus wax. Montures uniques, personnalisables, pour événements et collaborations opticiens. BOURTOUKANE by Chez Ama's est une marque portée par Ama Béatrice Alovor : animatrice d'événements, comédienne, traductrice Français - Anglais et coach en positive mindset. Entre l'Afrique et la diaspora, elle crée des montures et accessoires uniques, en valorisant des chutes de tissus récupérées chez les couturières."
+const ogImage = '/images/editorial-banner.jpg'
+
 export const metadata: Metadata = {
-  title: 'BOURTOUKANE | Luxury African Eyewear',
-  description: 'Découvrez nos lunettes artisanales uniques, ornées de tissus wax africains authentiques. Handcrafted eyewear celebrating African heritage.',
-  keywords: ['African eyewear', 'wax fabric glasses', 'luxury sunglasses', 'handmade eyewear', 'African fashion'],
+  metadataBase,
+  applicationName: siteName,
+  title: {
+    default: defaultTitle,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  keywords: [
+    'BOURTOUKANE',
+    "Chez Ama's",
+    "Ama Beatrice Alovor",
+    'montures en wax',
+    'lunettes artisanales',
+    'lunettes africaines',
+    'montures personnalisées',
+    'luxury eyewear',
+    'African eyewear',
+    'wax fabric glasses',
+  ],
+  category: 'shopping',
+  creator: siteName,
+  publisher: siteName,
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: '/icon.svg',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
-    title: 'BOURTOUKANE | Luxury African Eyewear',
-    description: 'Handcrafted eyewear celebrating African heritage with authentic wax fabrics.',
+    title: defaultTitle,
+    description: defaultDescription,
     type: 'website',
+    siteName,
+    locale: 'fr_FR',
+    url: '/',
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteName} — Lunettes artisanales en wax`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [ogImage],
   },
 }
 
@@ -38,8 +110,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const organizationStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteName,
+    url: metadataBase?.href,
+    logo: metadataBase ? new URL('/icon.svg', metadataBase).href : undefined,
+    sameAs: [
+      'https://www.instagram.com/chez_ama_s',
+      'https://www.tiktok.com/@amaalovor',
+      'https://www.facebook.com/ama.alovor',
+    ],
+  }
+
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="fr" data-scroll-behavior="smooth" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-sans antialiased bg-background">
         <script
           dangerouslySetInnerHTML={{
@@ -50,6 +135,12 @@ export default function RootLayout({
         <I18nProvider>
           {children}
         </I18nProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationStructuredData),
+          }}
+        />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
