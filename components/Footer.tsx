@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
 import { Instagram, Facebook, MessageCircle, ArrowUpRight, Mail, MapPin } from 'lucide-react'
+import { BrandLogo } from '@/components/BrandLogo'
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -34,8 +35,8 @@ export function Footer() {
   ]
 
   const socialLinks = [
-    { href: whatsappCtaLink, icon: MessageCircle, label: 'WhatsApp' },
-    { href: emailLink, icon: Mail, label: locale === 'fr' ? 'Email' : 'Email' },
+    // { href: whatsappCtaLink, icon: MessageCircle, label: 'WhatsApp' },
+    // { href: emailLink, icon: Mail, label: locale === 'fr' ? 'Email' : 'Email' },
     { href: 'https://www.instagram.com/chez_ama_s', icon: Instagram, label: 'Instagram' },
     { href: 'https://www.tiktok.com/@amaalovor', icon: TikTokIcon, label: 'TikTok' },
     { href: 'https://www.facebook.com/ama.alovor', icon: Facebook, label: 'Facebook' },
@@ -88,12 +89,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block group">
-              <h3 className="font-serif text-2xl font-bold tracking-wider group-hover:text-accent transition-colors duration-300">
-                BOURTOUKANE
-              </h3>
-              <p className="mt-1 text-sm text-background/60 italic">
-                by Chez Ama&apos;s
-              </p>
+              <BrandLogo variant="footer" />
             </Link>
             <p className="mt-5 text-sm text-background/60 leading-relaxed">
               {locale === 'fr'

@@ -3,23 +3,11 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Bonheur_Royale, Major_Mono_Display } from 'next/font/google'
 import { useI18n } from '@/lib/i18n'
 import { X, ShoppingBag, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { BrandLogo } from '@/components/BrandLogo'
 import { cn } from '@/lib/utils'
-
-const majorMono = Major_Mono_Display({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-})
-
-const bonheurRoyale = Bonheur_Royale({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-})
 
 export function Header() {
   const { t, locale, setLocale } = useI18n()
@@ -27,20 +15,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
   const closeButtonRef = useRef<HTMLButtonElement | null>(null)
-  const logoText = 'BOURTOUKANE'
-  const logoLetterClasses = [
-    'text-amber-600 dark:text-amber-400',
-    'text-emerald-600 dark:text-emerald-400',
-    'text-sky-600 dark:text-sky-400',
-    'text-rose-600 dark:text-rose-400',
-    'text-violet-600 dark:text-violet-400',
-    'text-orange-600 dark:text-orange-400',
-    'text-cyan-600 dark:text-cyan-400',
-    'text-lime-600 dark:text-lime-400',
-    'text-fuchsia-600 dark:text-fuchsia-400',
-    'text-teal-600 dark:text-teal-400',
-    'text-red-600 dark:text-red-400',
-  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,32 +76,7 @@ export function Header() {
               href="/"
               className="shrink-0 group relative"
             >
-              <span className="relative inline-block leading-none">
-                <span
-                  className={cn(
-                    majorMono.className,
-                    "block text-xl md:text-2xl font-bold tracking-[0.14em] text-foreground transition-opacity duration-300 group-hover:opacity-70"
-                  )}
-                  aria-label={logoText}
-                >
-                  <span className="sr-only">{logoText}</span>
-                  <span aria-hidden="true">
-                    {logoText.split('').map((letter, index) => (
-                      <span key={`${letter}-${index}`} className={cn('inline-block', logoLetterClasses[index])}>
-                        {letter}
-                      </span>
-                    ))}
-                  </span>
-                </span>
-                <span
-                  className={cn(
-                    bonheurRoyale.className,
-                    "absolute left-0 right-0 top-full -mt-2 text-right text-base md:text-2xl text-foreground transition-colors duration-300 group-hover:text-foreground whitespace-nowrap"
-                  )}
-                >
-                  by Chez Ama&apos;s
-                </span>
-              </span>
+              <BrandLogo variant="header" />
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300" />
             </Link>
 
