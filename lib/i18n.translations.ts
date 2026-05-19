@@ -54,7 +54,7 @@ export const translations: Translations = {
   "product.feature2": { fr: "Fabriqué à la main par nos artisans", en: "Handcrafted by our artisans" },
   "product.feature3": { fr: "Monture en acétate de haute qualité", en: "High-quality acetate frame" },
   "product.orderWhatsApp": { fr: "Commander via WhatsApp", en: "Order via WhatsApp" },
-  "product.orderNote": { fr: "Livraison gratuite en Côte d'Ivoire. Expédition internationale disponible.", en: "Free delivery in Ivory Coast. International shipping available." },
+  "product.orderNote": { fr: "Livraison gratuite au Togo. Expédition internationale disponible.", en: "Free delivery in Togo. International shipping available." },
   "product.related": { fr: "Vous Aimerez Aussi", en: "You May Also Like" },
   "customize.label": { fr: "Personnalisation", en: "Customization" },
   "customize.title": { fr: "Créez Votre Monture Unique", en: "Create Your Unique Frame" },
@@ -114,7 +114,7 @@ export const translations: Translations = {
   "about.ctaCustomize": { fr: "Créer Ma Monture", en: "Create My Frame" },
   "footer.description": { fr: "Lunettes artisanales africaines de luxe. Chaque paire raconte une histoire unique, mêlant tradition et modernité.", en: "Luxury African handcrafted eyewear. Each pair tells a unique story, blending tradition and modernity." },
   "footer.contact": { fr: "Contact", en: "Contact" },
-  "footer.copyright": { fr: "© 2024 BOURTOUKANE. Tous droits réservés.", en: "© 2024 BOURTOUKANE. All rights reserved." },
-  "footer.madeWith": { fr: "Fait avec amour en Côte d'Ivoire", en: "Made with love in Ivory Coast" },
+  "footer.copyright": { fr: "© 2026 BOURTOUKANE. Tous droits réservés.", en: "© 2026 BOURTOUKANE. All rights reserved." },
+  "footer.madeWith": { fr: "Fait avec amour au Togo", en: "Made with love in Togo" },
   "whatsapp.defaultMessage": { fr: "Bonjour, je suis intéressé(e) par vos créations.", en: "Hello, I am interested in your creations." },
 }

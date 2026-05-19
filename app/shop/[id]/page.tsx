@@ -16,9 +16,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const resolvedParams = use(params)
   const { t, locale } = useI18n()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
+
   const product = products.find(p => p.id === resolvedParams.id)
-  
+
   if (!product) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -45,13 +46,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     .filter(p => p.id !== product.id && p.category === product.category)
     .slice(0, 4)
 
-  const whatsappNumber = "+22500000000"
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+22892189269'
   const orderMessage = encodeURIComponent(
-    locale === 'fr' 
+    locale === 'fr'
       ? `Bonjour, je souhaite commander : ${name} (${product.price.toLocaleString('fr-FR')} FCFA)`
       : `Hello, I would like to order: ${name} (${product.price.toLocaleString('en-US')} FCFA)`
   )
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}?text=${orderMessage}`
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${orderMessage}`
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % product.images.length)
@@ -61,10 +62,15 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length)
   }
 
+  const setImageIndex = (index: number) => {
+    setIsImageLoaded(false)
+    setCurrentImageIndex(index)
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Breadcrumb */}
       <section className="pt-24 pb-4 px-4">
         <div className="max-w-7xl mx-auto">
@@ -83,10 +89,12 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             <div className="space-y-4">
               <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
                 <Image
+                  key={product.images[currentImageIndex]}
                   src={product.images[currentImageIndex]}
                   alt={name}
                   fill
-                  className="object-cover"
+                  className={`object-cover transition-opacity duration-500 ease-out ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  onLoad={() => setIsImageLoaded(true)}
                   priority
                 />
                 {product.isNew && (
@@ -97,14 +105,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                 {product.images.length > 1 && (
                   <>
                     <button
-                      onClick={prevImage}
+                      onClick={() => setImageIndex((currentImageIndex - 1 + product.images.length) % product.images.length)}
                       className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
-                      onClick={nextImage}
+                      onClick={() => setImageIndex((currentImageIndex + 1) % product.images.length)}
                       className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
                       aria-label="Next image"
                     >
@@ -113,17 +121,16 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                   </>
                 )}
               </div>
-              
+
               {/* Thumbnails */}
               {product.images.length > 1 && (
                 <div className="flex gap-3">
                   {product.images.map((img, idx) => (
                     <button
                       key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`relative w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${
-                        idx === currentImageIndex ? 'border-accent' : 'border-transparent'
-                      }`}
+                      onClick={() => setImageIndex(idx)}
+                      className={`relative w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${idx === currentImageIndex ? 'border-accent' : 'border-transparent'
+                        }`}
                     >
                       <Image src={img} alt={`${name} ${idx + 1}`} fill className="object-cover" />
                     </button>

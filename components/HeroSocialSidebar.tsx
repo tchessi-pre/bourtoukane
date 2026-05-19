@@ -23,7 +23,7 @@ export function HeroSocialSidebar({ isVisible }: { isVisible: boolean }) {
       )}
     >
       <a
-        href="https://www.instagram.com/"
+        href="https://www.instagram.com/chez_ama_s"
         target="_blank"
         rel="noreferrer"
         aria-label="Instagram"
@@ -32,7 +32,7 @@ export function HeroSocialSidebar({ isVisible }: { isVisible: boolean }) {
         <Instagram className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
       </a>
       <a
-        href="https://www.tiktok.com/"
+        href="https://www.tiktok.com/@amaalovor"
         target="_blank"
         rel="noreferrer"
         aria-label="TikTok"
@@ -41,7 +41,7 @@ export function HeroSocialSidebar({ isVisible }: { isVisible: boolean }) {
         <TikTokIcon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
       </a>
       <a
-        href="https://www.facebook.com/"
+        href="https://www.facebook.com/ama.alovor"
         target="_blank"
         rel="noreferrer"
         aria-label="Facebook"
@@ -58,4 +58,3 @@ export function HeroSocialSidebar({ isVisible }: { isVisible: boolean }) {
     </div>
   )
 }
-

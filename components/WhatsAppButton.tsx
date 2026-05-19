@@ -5,9 +5,9 @@ import { useI18n } from '@/lib/i18n'
 
 export function WhatsAppButton() {
   const { t } = useI18n()
-  const whatsappNumber = "+22500000000"
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+22892189269'
   const message = encodeURIComponent(t('whatsapp.defaultMessage'))
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}?text=${message}`
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${message}`
 
   return (
     <a

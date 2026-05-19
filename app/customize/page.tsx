@@ -7,40 +7,19 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { MessageCircle, Palette, Glasses, Ruler } from 'lucide-react'
+import { CalendarDays, MessageCircle, Users } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-const frameStyles = [
-  { id: 'aviator', name: { fr: 'Aviateur', en: 'Aviator' } },
-  { id: 'wayfarer', name: { fr: 'Wayfarer', en: 'Wayfarer' } },
-  { id: 'round', name: { fr: 'Rond', en: 'Round' } },
-  { id: 'cat-eye', name: { fr: 'Oeil de chat', en: 'Cat Eye' } },
-  { id: 'oversized', name: { fr: 'Oversize', en: 'Oversized' } },
-]
-
-const fabricPatterns = [
-  { id: 'ankara-gold', name: { fr: 'Ankara Or', en: 'Ankara Gold' }, color: '#D4AF37' },
-  { id: 'kente-green', name: { fr: 'Kente Vert', en: 'Kente Green' }, color: '#228B22' },
-  { id: 'bogolan-earth', name: { fr: 'Bogolan Terre', en: 'Bogolan Earth' }, color: '#8B4513' },
-  { id: 'adire-indigo', name: { fr: 'Adire Indigo', en: 'Adire Indigo' }, color: '#4B0082' },
-  { id: 'kitenge-orange', name: { fr: 'Kitenge Orange', en: 'Kitenge Orange' }, color: '#FF6B35' },
-  { id: 'wax-blue', name: { fr: 'Wax Bleu', en: 'Wax Blue' }, color: '#1E90FF' },
-]
-
-const previewByFrameStyle: Record<string, string> = {
-  aviator: '/images/products/sahel-gold.jpg',
-  wayfarer: '/images/products/wax-indigo.jpg',
-  round: '/images/products/ankara-gold.jpg',
-  'cat-eye': '/images/products/kitenge-sunset.png',
-  oversized: '/images/products/faso-dan-fani.jpg',
-}
 
 export default function CustomizePage() {
   const { t, locale } = useI18n()
-  const [frameStyle, setFrameStyle] = useState('aviator')
-  const [fabricPattern, setFabricPattern] = useState('ankara-gold')
-  const [lensType, setLensType] = useState('sun')
+  type Audience = 'adult' | 'kids' | 'family'
+  type Occasion = 'none' | 'birthday' | 'wedding' | 'corporate' | 'other'
+
+  const [audience, setAudience] = useState<Audience>('adult')
+  const [occasion, setOccasion] = useState<Occasion>('none')
+  const [quantity, setQuantity] = useState(1)
   const [notes, setNotes] = useState('')
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -48,17 +27,55 @@ export default function CustomizePage() {
     setIsLoaded(true)
   }, [])
 
-  const selectedFrame = frameStyles.find(f => f.id === frameStyle)
-  const selectedFabric = fabricPatterns.find(f => f.id === fabricPattern)
-  const previewSrc = previewByFrameStyle[frameStyle] ?? '/images/customize-preview.jpg'
+  const previewSrc = '/images/customize-preview.jpg'
 
-  const whatsappNumber = "+22500000000"
+  const audienceOptions: ReadonlyArray<{ value: Audience; label: string }> = [
+    { value: 'adult', label: locale === 'fr' ? 'Adultes' : 'Adults' },
+    { value: 'kids', label: locale === 'fr' ? 'Enfants' : 'Kids' },
+    { value: 'family', label: locale === 'fr' ? 'Famille' : 'Family' },
+  ]
+
+  const audienceLabel =
+    audience === 'kids'
+      ? locale === 'fr'
+        ? 'Enfants'
+        : 'Kids'
+      : audience === 'family'
+        ? locale === 'fr'
+          ? 'Hommes · Femmes · Enfants'
+          : 'Men · Women · Kids'
+        : locale === 'fr'
+          ? 'Adultes'
+          : 'Adults'
+
+  const occasionLabel =
+    occasion === 'birthday'
+      ? locale === 'fr'
+        ? 'Anniversaire'
+        : 'Birthday'
+      : occasion === 'wedding'
+        ? locale === 'fr'
+          ? 'Mariage'
+          : 'Wedding'
+        : occasion === 'corporate'
+          ? locale === 'fr'
+            ? "Fête d'entreprise"
+            : 'Company event'
+          : occasion === 'other'
+            ? locale === 'fr'
+              ? 'Autre'
+              : 'Other'
+            : locale === 'fr'
+              ? 'Aucun'
+              : 'None'
+
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+22892189269'
   const customMessage = encodeURIComponent(
     locale === 'fr'
-      ? `Bonjour, je souhaite créer des lunettes personnalisées:\n- Monture: ${selectedFrame?.name.fr}\n- Tissu: ${selectedFabric?.name.fr}\n- Type de verres: ${lensType === 'sun' ? 'Solaires' : lensType === 'optical' ? 'Optiques' : 'Bleu lumière'}\n${notes ? `- Notes: ${notes}` : ''}`
-      : `Hello, I would like to create custom eyewear:\n- Frame: ${selectedFrame?.name.en}\n- Fabric: ${selectedFabric?.name.en}\n- Lens type: ${lensType === 'sun' ? 'Sunglasses' : lensType === 'optical' ? 'Optical' : 'Blue light'}\n${notes ? `- Notes: ${notes}` : ''}`
+      ? `Bonjour, je souhaite créer des lunettes personnalisées:\n- Pour: ${audienceLabel}\n- Occasion: ${occasionLabel}\n- Quantité: ${quantity}\n${notes ? `- Notes: ${notes}` : ''}`
+      : `Hello, I would like to create custom eyewear:\n- For: ${audienceLabel}\n- Occasion: ${occasionLabel}\n- Quantity: ${quantity}\n${notes ? `- Notes: ${notes}` : ''}`
   )
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}?text=${customMessage}`
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${customMessage}`
 
   return (
     <div className="min-h-screen bg-background">
@@ -133,10 +150,10 @@ export default function CustomizePage() {
                 {locale === 'fr' ? 'Votre composition' : 'Your selection'}
               </p>
               <p className="font-serif text-2xl text-foreground">
-                {locale === 'fr' ? selectedFrame?.name.fr : selectedFrame?.name.en} · {locale === 'fr' ? selectedFabric?.name.fr : selectedFabric?.name.en}
+                {audienceLabel} · {occasionLabel} · {quantity}
               </p>
               <p className="text-sm text-muted-foreground">
-                {locale === 'fr' ? 'À partir de 95 000 FCFA — Livraison sous 3 semaines' : 'From 95,000 FCFA — Delivery within 3 weeks'}
+                {locale === 'fr' ? 'Livraison sous 3 semaines' : 'Delivery within 3 weeks'}
               </p>
               <p className="text-muted-foreground text-sm">
                 {t('customize.previewNote')}
@@ -147,75 +164,119 @@ export default function CustomizePage() {
           <div className="space-y-8">
             <div>
               <h3 className="text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                <Glasses className="h-4 w-4 text-accent" />
-                <span>1. {t('customize.selectFrame')}</span>
+                <CalendarDays className="h-4 w-4 text-accent" />
+                <span>1. {locale === 'fr' ? 'Événement & quantité' : 'Occasion & quantity'}</span>
               </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {frameStyles.map((style) => (
-                  <button
-                    key={style.id}
-                    type="button"
-                    onClick={() => setFrameStyle(style.id)}
-                    className={cn(
-                      "px-4 py-3 text-sm uppercase tracking-widest border transition-all",
-                      frameStyle === style.id
-                        ? "bg-foreground text-background border-foreground"
-                        : "border-border bg-background hover:border-foreground"
-                    )}
-                  >
-                    {locale === 'fr' ? style.name.fr : style.name.en}
-                  </button>
-                ))}
-              </div>
-            </div>
 
-            <div>
-              <h3 className="text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                <Palette className="h-4 w-4 text-accent" />
-                <span>2. {t('customize.selectFabric')}</span>
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {fabricPatterns.map((pattern) => (
-                  <button
-                    key={pattern.id}
-                    type="button"
-                    onClick={() => setFabricPattern(pattern.id)}
-                    className={cn(
-                      "flex items-center gap-3 px-4 py-3 text-sm uppercase tracking-widest border transition-all bg-background",
-                      fabricPattern === pattern.id ? "border-foreground" : "border-border hover:border-foreground"
-                    )}
-                  >
-                    <span className="w-5 h-5 rounded-full border border-border" style={{ backgroundColor: pattern.color }} />
-                    {locale === 'fr' ? pattern.name.fr : pattern.name.en}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                <Ruler className="h-4 w-4 text-accent" />
-                <span>3. {t('customize.selectLens')}</span>
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {[
-                  { value: 'sun', label: t('customize.sunglasses') },
-                  { value: 'optical', label: t('customize.optical') },
-                  { value: 'blue', label: t('customize.blueLight') },
+                  { value: 'none' as const, label: locale === 'fr' ? 'Aucun' : 'None' },
+                  { value: 'birthday' as const, label: locale === 'fr' ? 'Anniversaire' : 'Birthday' },
+                  { value: 'wedding' as const, label: locale === 'fr' ? 'Mariage' : 'Wedding' },
+                  { value: 'corporate' as const, label: locale === 'fr' ? "Entreprise" : 'Company' },
+                  { value: 'other' as const, label: locale === 'fr' ? 'Autre' : 'Other' },
                 ].map((option) => (
                   <button
                     key={option.value}
                     type="button"
-                    onClick={() => setLensType(option.value)}
+                    onClick={() => setOccasion(option.value)}
                     className={cn(
                       "px-4 py-3 text-sm uppercase tracking-widest border transition-all bg-background",
-                      lensType === option.value ? "border-foreground" : "border-border hover:border-foreground"
+                      occasion === option.value ? "border-foreground" : "border-border hover:border-foreground"
                     )}
                   >
                     {option.label}
                   </button>
                 ))}
               </div>
+
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Quantity */}
+                <div className="border border-border bg-background p-4 space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <label
+                      htmlFor="quantity-input"
+                      className="text-xs uppercase tracking-widest text-muted-foreground cursor-pointer"
+                    >
+                      {locale === 'fr' ? 'Quantité' : 'Quantity'}
+                    </label>
+                    <span className="text-xs tabular-nums text-muted-foreground">{quantity}</span>
+                  </div>
+
+                  <div className="flex items-stretch">
+                    <button
+                      type="button"
+                      onClick={() => setQuantity((current) => Math.max(1, current - 1))}
+                      className="h-11 w-11 shrink-0 border border-border bg-background text-sm transition-colors hover:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      aria-label={locale === 'fr' ? 'Diminuer la quantité' : 'Decrease quantity'}
+                    >
+                      −
+                    </button>
+                    <Input
+                      id="quantity-input"
+                      type="number"
+                      inputMode="numeric"
+                      min={1}
+                      step={1}
+                      value={quantity}
+                      onChange={(e) => setQuantity(Math.max(1, Number(e.target.value || 1)))}
+                      className="h-11 rounded-none border-x-0 text-center tabular-nums bg-background focus-visible:ring-0 focus-visible:ring-offset-0"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setQuantity((current) => current + 1)}
+                      className="h-11 w-11 shrink-0 border border-border bg-background text-sm transition-colors hover:border-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      aria-label={locale === 'fr' ? 'Augmenter la quantité' : 'Increase quantity'}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                {/* Audience (as semantic radio group) */}
+                <fieldset className="border border-border bg-background p-4 space-y-3">
+                  <legend className="sr-only">{locale === 'fr' ? 'Pour qui ?' : 'For who?'}</legend>
+
+                  <div className="w-full text-xs uppercase tracking-widest text-muted-foreground flex items-center justify-between gap-3">
+                    <span className="inline-flex items-center gap-2">
+                      <Users className="h-4 w-4 text-accent" aria-hidden="true" />
+                      <span>{locale === 'fr' ? 'Pour qui ?' : 'For who?'}</span>
+                    </span>
+                    <span className="text-xs text-muted-foreground">{audienceLabel}</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {audienceOptions.map((option) => (
+                      <label
+                        key={option.value}
+                        className={cn(
+                          'flex items-center justify-center px-2 sm:px-3 py-3 text-[11px] sm:text-xs tracking-wide uppercase text-center border transition-all cursor-pointer select-none',
+                          'focus-within:outline-none focus-within:ring-2 focus-within:ring-accent/40 focus-within:ring-offset-2 focus-within:ring-offset-background',
+                          audience === option.value
+                            ? 'border-foreground bg-background'
+                            : 'border-border bg-background hover:border-foreground'
+                        )}
+                      >
+                        <input
+                          type="radio"
+                          name="audience"
+                          value={option.value}
+                          checked={audience === option.value}
+                          onChange={() => setAudience(option.value)}
+                          className="sr-only"
+                        />
+                        {option.label}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              </div>
+
+              <p className="mt-4 text-sm text-muted-foreground">
+                {locale === 'fr'
+                  ? "Les montures BOURTOUKANE by Chez Ama's existent pour hommes, femmes et enfants. Chaque pièce est unique grâce aux chutes de tissus récupérées chez les couturières, ce qui contribue à l'amélioration de l'environnement. Collaboration avec des opticiens et ophtalmologues agréés."
+                  : "BOURTOUKANE by Chez Ama's frames are available for men, women, and kids. Each piece is unique thanks to upcycled fabric scraps collected from local seamstresses, helping reduce waste and support the environment. Collaboration with licensed opticians and ophthalmologists."}
+              </p>
             </div>
 
             <div className="space-y-3">
@@ -229,6 +290,11 @@ export default function CustomizePage() {
                 placeholder={t('customize.notesPlaceholder')}
                 className="min-h-[120px] rounded-none bg-background"
               />
+              <p className="text-sm text-muted-foreground">
+                {locale === 'fr'
+                  ? "Décrivez ici la monture souhaitée, le tissu souhaité et le type de verres (optique, solaire, bleu lumière), ainsi que toute précision utile."
+                  : 'Describe here the desired frame, fabric, and lens type (optical, sunglasses, blue light), plus any useful details.'}
+              </p>
             </div>
 
             <Button

@@ -209,5 +209,68 @@ export const products: Product[] = [
     material: "Acétate Premium",
     origin: "Côte d'Ivoire",
     isNew: true
+  },
+  {
+    id: "dapaong",
+    name: {
+      fr: "Lomé",
+      en: "Lome"
+    },
+    description: {
+      fr: "Une monture inspirée de Lomé, aux lignes sobres et affirmées. Le tissu wax rehaussé de touches vives crée une pièce élégante et facile à porter.",
+      en: "A frame inspired by Lomé, with clean and confident lines. Wax fabric with vibrant accents makes it elegant and easy to wear."
+    },
+    fabric: {
+      fr: "Chutes de wax récupérées",
+      en: "Upcycled wax scraps"
+    },
+    price: 25000,
+    images: ["/images/products/lome.jpeg", "/images/products/lome-2.png"],
+    category: "sunglasses",
+    material: "Acétate Premium",
+    origin: "Togo",
+    isNew: true
+  },
+  {
+    id: "niamey",
+    name: {
+      fr: "Niamey",
+      en: "Niamey"
+    },
+    description: {
+      fr: "Inspirées de Niamey, ces lunettes associent une silhouette légère à un motif wax bleu/jaune très graphique. Un modèle lumineux et moderne.",
+      en: "Inspired by Niamey, these glasses combine a light silhouette with a bold blue/yellow wax pattern. A bright, modern model."
+    },
+    fabric: {
+      fr: "Chutes de wax récupérées",
+      en: "Upcycled wax scraps"
+    },
+    price: 25000,
+    images: ["/images/products/niamey.jpeg", "/images/products/niamey-2.png"],
+    category: "optical",
+    material: "Acétate & Métal",
+    origin: "Niger",
+    isNew: true
+  },
+  {
+    id: "tombouctou",
+    name: {
+      fr: "Tombouctou",
+      en: "Timbuktu"
+    },
+    description: {
+      fr: "Une monture statement inspirée de Tombouctou : couleurs chaudes, motif riche et présence forte. Pensée pour ceux qui aiment se démarquer.",
+      en: "A statement frame inspired by Timbuktu: warm colors, rich pattern, strong presence. Made for those who like to stand out."
+    },
+    fabric: {
+      fr: "Chutes de wax récupérées",
+      en: "Upcycled wax scraps"
+    },
+    price: 25000,
+    images: ["/images/products/tonbouktou.jpeg", "/images/products/tonbouktou-2.png"],
+    category: "limited",
+    material: "Acétate Premium",
+    origin: "Mali",
+    isNew: true
   }
 ]

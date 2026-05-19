@@ -26,14 +26,14 @@ export function HomeHero() {
 			<div className='absolute inset-0 overflow-hidden'>
 				<div
 					className={cn(
-						'absolute top-[14%] right-[6%] h-40 w-40 rotate-45 border-2 border-accent/10 transition-all duration-1000',
+						'hidden sm:block absolute top-[14%] right-[6%] h-40 w-40 rotate-45 border-2 border-accent/10 transition-all duration-1000',
 						'animate-float',
 						isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
 					)}
 				/>
 				<div
 					className={cn(
-						'absolute top-[62%] right-[14%] h-24 w-24 rotate-12 bg-accent/5 transition-all duration-1000 delay-200',
+						'hidden md:block absolute top-[62%] right-[14%] h-24 w-24 rotate-12 bg-accent/5 transition-all duration-1000 delay-200',
 						'animate-float',
 						isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
 					)}
@@ -132,7 +132,7 @@ export function HomeHero() {
 									)}
 								/>
 								<span className='text-xs font-medium uppercase tracking-[0.2em] text-accent'>
-									{locale === 'fr' ? 'Artisanat · Togo' : 'Artisanat · Togo'}
+									{locale === 'fr' ? 'Artisanat · Afrique' : 'Craft · Africa'}
 								</span>
 								<span className='inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur-sm'>
 									<Sparkles className='h-3.5 w-3.5 text-accent animate-subtle-pulse' />
@@ -147,6 +147,9 @@ export function HomeHero() {
 										{locale === 'fr' ? 'Tissus africains' : 'African textiles'}
 									</span>
 								</span>
+								{/* <span className='hidden sm:inline-flex items-center rounded-full border border-border/60 bg-background/40 px-3 py-1 text-xs text-foreground/80 backdrop-blur-sm'>
+									{locale === 'fr' ? 'Chutes revalorisées' : 'Upcycled scraps'}
+								</span> */}
 							</div>
 
 							<h1 className='font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.08] tracking-tight'>
@@ -192,6 +195,18 @@ export function HomeHero() {
 							>
 								{t('hero.subtitle')}
 							</p>
+							<p
+								className={cn(
+									'text-sm md:text-base leading-relaxed max-w-md text-muted-foreground/90 transition-all duration-700 delay-450',
+									isLoaded
+										? 'opacity-100 translate-y-0'
+										: 'opacity-0 translate-y-8'
+								)}
+							>
+								{locale === 'fr'
+									? "Chaque monture est unique grâce aux chutes de tissus récupérées chez les couturières."
+									: 'Each frame is unique thanks to upcycled fabric scraps collected from seamstresses.'}
+							</p>
 
 							<div
 								className={cn(
@@ -231,14 +246,6 @@ export function HomeHero() {
 							>
 								<div className='group cursor-default'>
 									<p className='font-serif text-3xl md:text-4xl font-bold text-foreground transition-transform duration-300 group-hover:scale-110'>
-										8+
-									</p>
-									<p className='text-sm text-muted-foreground uppercase tracking-wide'>
-										{locale === 'fr' ? 'Tissus Africains' : 'African Fabrics'}
-									</p>
-								</div>
-								<div className='group cursor-default'>
-									<p className='font-serif text-3xl md:text-4xl font-bold text-foreground transition-transform duration-300 group-hover:scale-110'>
 										100%
 									</p>
 									<p className='text-sm text-muted-foreground uppercase tracking-wide'>
@@ -247,10 +254,10 @@ export function HomeHero() {
 								</div>
 								<div className='group cursor-default'>
 									<p className='font-serif text-3xl md:text-4xl font-bold text-foreground transition-transform duration-300 group-hover:scale-110'>
-										1
+										Unique
 									</p>
 									<p className='text-sm text-muted-foreground uppercase tracking-wide'>
-										{locale === 'fr' ? 'Vision Unique' : 'Unique Vision'}
+										{locale === 'fr' ? 'À Votre Image' : 'Made for You'}
 									</p>
 								</div>
 							</div>
@@ -269,7 +276,7 @@ export function HomeHero() {
 							<div className='relative aspect-3/4 lg:aspect-4/5 w-full lg:w-[90%] lg:ml-auto overflow-hidden rounded-3xl group shadow-2xl shadow-foreground/10'>
 								<div className='absolute inset-0 bg-foreground/5' />
 								<Image
-									src='/images/hero-bg.jpg'
+									src='/images/hero-bg.png'
 									alt={
 										locale === 'fr'
 											? 'Lunettes artisanales africaines'
@@ -277,8 +284,10 @@ export function HomeHero() {
 									}
 									fill
 									className='object-cover transition-transform duration-700 group-hover:scale-105'
+									sizes='(max-width: 1024px) 100vw, 50vw'
 									priority
 								/>
+								<div className='pointer-events-none absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent' />
 								<div
 									className='pointer-events-none absolute top-6 left-6 h-20 w-20 rotate-6 overflow-hidden rounded-2xl shadow-xl shadow-foreground/10 ring-1 ring-inset ring-foreground/10 animate-float'
 									style={{ animationDuration: '6s' }}
@@ -303,8 +312,8 @@ export function HomeHero() {
 							>
 								<p className='font-serif text-sm text-muted-foreground italic leading-relaxed'>
 									{locale === 'fr'
-										? '"Chaque monture raconte une histoire africaine"'
-										: '"Every frame tells an African story"'}
+										? '"Des chutes de tissus, une nouvelle vie."'
+										: '"From fabric scraps to a new life."'}
 								</p>
 								<div className='mt-3 flex items-center gap-2'>
 									<div className='h-px flex-1 bg-accent' />
