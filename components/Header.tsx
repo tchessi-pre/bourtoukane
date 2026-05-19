@@ -124,14 +124,14 @@ export function Header() {
               <div className="hidden md:block w-px h-5 bg-border mx-2" />
 
               {/* Cart Icon */}
-              <Button
+              {/* <Button
                 variant="ghost"
                 size="icon"
                 className="hidden md:flex relative group overflow-hidden"
               >
                 <ShoppingBag className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Button>
+              </Button> */}
 
               {/* Mobile Menu Button */}
               <button

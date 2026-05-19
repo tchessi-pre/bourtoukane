@@ -16,8 +16,9 @@ function TikTokIcon({ className }: { className?: string }) {
 export function Footer() {
   const { t, locale } = useI18n()
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+22892189269'
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'alvoramabeatrice@gmail.com'
+  const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+22892189269').trim()
+  const contactEmailRaw = (process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'alvoramabeatrice@gmail.com').trim()
+  const contactEmail = contactEmailRaw.replace(/^mailto:/i, '').trim()
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}`
   const whatsappCtaMessage = encodeURIComponent(
     locale === 'fr'
@@ -26,6 +27,13 @@ export function Footer() {
   )
   const whatsappCtaLink = `${whatsappLink}?text=${whatsappCtaMessage}`
   const emailLink = `mailto:${contactEmail}`
+  const emailSubject = encodeURIComponent(locale === 'fr' ? "Contact — BOURTOUKANE by Chez Ama's" : "Contact — BOURTOUKANE by Chez Ama's")
+  const emailBody = encodeURIComponent(
+    locale === 'fr'
+      ? "Bonjour,\n\nJe souhaite vous contacter au sujet de :\n\nMerci,"
+      : "Hello,\n\nI'd like to contact you about:\n\nThanks,"
+  )
+  const gmailComposeLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contactEmail)}&su=${emailSubject}&body=${emailBody}`
 
   const navLinks = [
     { href: '/', label: t('nav.home') },
@@ -68,14 +76,16 @@ export function Footer() {
                 href={whatsappCtaLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-14 px-8 bg-[#25D366] text-white font-medium transition-all duration-300 hover:bg-[#25D366]/90 hover:translate-x-1 inline-flex items-center justify-center gap-2 group"
+                className="h-14 px-8 bg-[#25D366] text-white font-medium transition-all duration-300 hover:bg-[#25D366]/90 lg:hover:translate-x-1 inline-flex items-center justify-center gap-2 group touch-manipulation"
               >
                 {locale === 'fr' ? 'Parler sur WhatsApp' : 'Chat on WhatsApp'}
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a
-                href={emailLink}
-                className="h-14 px-8 bg-background/10 border border-background/20 text-background font-medium transition-all duration-300 hover:bg-background/15 hover:translate-x-1 inline-flex items-center justify-center gap-2 group"
+                href={gmailComposeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 px-8 bg-background/10 border border-background/20 text-background font-medium transition-all duration-300 hover:bg-background/15 lg:hover:translate-x-1 inline-flex items-center justify-center gap-2 group touch-manipulation"
               >
                 {locale === 'fr' ? 'Nous écrire' : 'Email us'}
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -100,9 +110,9 @@ export function Footer() {
 
           {/* Navigation Column */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-background/40 mb-6">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-background/70 mb-6">
               {locale === 'fr' ? 'Explorer' : 'Explore'}
-            </h4>
+            </h3>
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
@@ -119,9 +129,9 @@ export function Footer() {
 
           {/* Collections Column */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-background/40 mb-6">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-background/70 mb-6">
               {locale === 'fr' ? 'Villes' : 'Cities'}
-            </h4>
+            </h3>
             <nav className="flex flex-col gap-4">
               {[
                 { href: '/shop/abidjan', label: 'Abidjan' },
@@ -143,9 +153,9 @@ export function Footer() {
 
           {/* Social Column */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-background/40 mb-6">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-background/70 mb-6">
               {locale === 'fr' ? 'Suivez-nous' : 'Follow Us'}
-            </h4>
+            </h3>
             <div className="flex flex-col gap-4">
               {socialLinks.map((social) => (
                 <a

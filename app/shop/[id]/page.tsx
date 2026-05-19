@@ -155,7 +155,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               </div>
 
               {/* Details */}
-              <div className="space-y-4 border-t border-border pt-6">
+              {/* <div className="space-y-4 border-t border-border pt-6">
                 <div className="flex justify-between py-2 border-b border-border">
                   <span className="text-muted-foreground">{t('product.fabric')}</span>
                   <span className="font-medium text-foreground">{fabric}</span>
@@ -168,7 +168,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                   <span className="text-muted-foreground">{t('product.origin')}</span>
                   <span className="font-medium text-foreground">{product.origin}</span>
                 </div>
-              </div>
+              </div> */}
 
               {/* Features */}
               <div className="space-y-3">
