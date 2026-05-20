@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
 import { Instagram, Facebook, MessageCircle, ArrowUpRight, Mail, MapPin } from 'lucide-react'
-import { BrandLogo } from '@/components/BrandLogo'
+import { BrandLogo } from '@/components/common/BrandLogo'
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -19,6 +19,8 @@ export function Footer() {
   const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+22892189269').trim()
   const contactEmailRaw = (process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'alvoramabeatrice@gmail.com').trim()
   const contactEmail = contactEmailRaw.replace(/^mailto:/i, '').trim()
+  const developerName = (process.env.NEXT_PUBLIC_DEVELOPER_NAME ?? 'Tchèssi').trim()
+  const developerUrl = (process.env.NEXT_PUBLIC_DEVELOPER_URL ?? 'https://pre-it.vercel.app/').trim()
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}`
   const whatsappCtaMessage = encodeURIComponent(
     locale === 'fr'
@@ -190,7 +192,14 @@ export function Footer() {
             </Link>
           </div>
           <p className="text-background/40 text-sm flex items-center gap-2">
-            {t('footer.madeWith')}
+            <a
+              href={developerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-background/40 hover:text-background transition-colors duration-300"
+            >
+              {locale === 'fr' ? `Développé par ${developerName}` : `Built by ${developerName}`}
+            </a>
           </p>
         </div>
       </div>

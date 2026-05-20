@@ -1,6 +1,6 @@
 "use client"
 
-import { BrandLogoLoader } from '@/components/BrandLogo'
+import { BrandLogoLoader } from '@/components/common/BrandLogo'
 
 export default function Loading() {
   return (

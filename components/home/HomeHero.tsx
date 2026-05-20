@@ -7,7 +7,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { HeroSocialSidebar } from '@/components/HeroSocialSidebar';
+import { HeroSocialSidebar } from '@/components/home/HeroSocialSidebar';
 
 export function HomeHero() {
 	const { t, locale } = useI18n();
@@ -115,11 +115,11 @@ export function HomeHero() {
 
 			<div className='relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:pl-24'>
 				<div className='grid min-h-screen items-center gap-10 lg:grid-cols-2 lg:gap-0 pt-24'>
-					<div className='order-2 flex flex-col justify-center lg:order-1 lg:pr-16 pb-12 lg:pb-0'>
+					<div className='order-2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left lg:order-1 lg:pr-16 pb-12 lg:pb-0'>
 						<div className='space-y-8'>
 							<div
 								className={cn(
-									'flex items-center gap-3 transition-all duration-700',
+									'flex flex-wrap items-center justify-center lg:justify-start gap-3 transition-all duration-700',
 									isLoaded
 										? 'opacity-100 translate-x-0'
 										: 'opacity-0 -translate-x-8'
@@ -187,7 +187,7 @@ export function HomeHero() {
 
 							<p
 								className={cn(
-									'text-lg md:text-xl leading-relaxed max-w-md text-muted-foreground transition-all duration-700 delay-400',
+									'text-lg md:text-xl leading-relaxed max-w-md text-muted-foreground transition-all duration-700 delay-400 mx-auto lg:mx-0',
 									isLoaded
 										? 'opacity-100 translate-y-0'
 										: 'opacity-0 translate-y-8'
@@ -197,7 +197,7 @@ export function HomeHero() {
 							</p>
 							<p
 								className={cn(
-									'text-sm md:text-base leading-relaxed max-w-md text-muted-foreground/90 transition-all duration-700 delay-450',
+									'text-sm md:text-base leading-relaxed max-w-md text-muted-foreground/90 transition-all duration-700 delay-450 mx-auto lg:mx-0',
 									isLoaded
 										? 'opacity-100 translate-y-0'
 										: 'opacity-0 translate-y-8'
@@ -210,7 +210,7 @@ export function HomeHero() {
 
 							<div
 								className={cn(
-									'flex flex-col sm:flex-row gap-4 pt-2 transition-all duration-700 delay-500',
+									'flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 pt-2 transition-all duration-700 delay-500 w-full',
 									isLoaded
 										? 'opacity-100 translate-y-0'
 										: 'opacity-0 translate-y-8'
@@ -238,13 +238,13 @@ export function HomeHero() {
 
 							<div
 								className={cn(
-									'flex flex-wrap gap-x-12 gap-y-6 pt-8 border-t border-border transition-all duration-700 delay-600',
+									'flex flex-wrap justify-center lg:justify-start gap-x-12 gap-y-6 pt-8 border-t border-border transition-all duration-700 delay-600 w-full',
 									isLoaded
 										? 'opacity-100 translate-y-0'
 										: 'opacity-0 translate-y-8'
 								)}
 							>
-								<div className='group cursor-default'>
+								<div className='group cursor-default text-center lg:text-left'>
 									<p className='font-serif text-3xl md:text-4xl font-bold text-foreground transition-transform duration-300 group-hover:scale-110'>
 										100%
 									</p>
@@ -252,7 +252,7 @@ export function HomeHero() {
 										{locale === 'fr' ? 'Fait Main' : 'Handcrafted'}
 									</p>
 								</div>
-								<div className='group cursor-default'>
+								<div className='group cursor-default text-center lg:text-left'>
 									<p className='font-serif text-3xl md:text-4xl font-bold text-foreground transition-transform duration-300 group-hover:scale-110'>
 										Unique
 									</p>

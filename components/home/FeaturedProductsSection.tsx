@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
 import { products } from '@/lib/products'
-import { ProductCard } from '@/components/ProductCard'
+import { ProductCard } from '@/components/product/ProductCard'
 import { Button } from '@/components/ui/button'
 
 export function FeaturedProductsSection() {

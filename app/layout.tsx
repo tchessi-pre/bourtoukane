@@ -21,12 +21,12 @@ const metadataBase =
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
     : process.env.VERCEL_URL
       ? new URL(`https://${process.env.VERCEL_URL}`)
-      : undefined
+      : new URL('http://localhost:3000')
 
 const siteName = "BOURTOUKANE by Chez Ama's"
 const defaultTitle = 'BOURTOUKANE | Montures artisanales en tissus africain'
 const defaultDescription =
-  "Lunettes artisanales africaines en tissus wax. Montures uniques, personnalisables, pour événements et collaborations opticiens. BOURTOUKANE by Chez Ama's est une marque portée par Ama Béatrice Alovor : animatrice d'événements, comédienne, traductrice Français - Anglais et coach en positive mindset. Entre l'Afrique et la diaspora, elle crée des montures et accessoires uniques, en valorisant des chutes de tissus récupérées chez les couturières."
+  "BOURTOUKANE by Chez Ama's est une marque portée par Ama Béatrice Alovor : animatrice d'événements, comédienne, traductrice Français - Anglais et coach en positive mindset. Entre l'Afrique et la diaspora, elle crée des montures et accessoires uniques, en valorisant des chutes de tissus récupérées chez les couturières."
 const ogImage = '/images/editorial-banner.jpg'
 
 export const metadata: Metadata = {
@@ -120,6 +120,7 @@ export default function RootLayout({
       'https://www.instagram.com/chez_ama_s',
       'https://www.tiktok.com/@amaalovor',
       'https://www.facebook.com/ama.alovor',
+      'https://www.google.com/maps/place/Totsivi,+Lom%C3%A9,+Togo/@6.19234,1.1634081,15z/data=!3m1!4b1!4m10!1m2!2m1!1sTotsi+Lom%C3%A9+Togo!3m6!1s0x102158f9cfbce889:0xf2f6c6fd7a33927!8m2!3d6.1931615!4d1.1806651!15sChBUb3RzaSBMb23DqSBUb2dvkgEMc3VibG9jYWxpdHkx4AEA!16s%2Fg%2F120jx06q?hl=fr&entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D',
     ],
   }
 

@@ -4,9 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
-import { X, ShoppingBag, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { BrandLogo } from '@/components/BrandLogo'
+import { X, ArrowRight } from 'lucide-react'
+import { BrandLogo } from '@/components/common/BrandLogo'
 import { cn } from '@/lib/utils'
 
 export function Header() {
