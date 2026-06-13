@@ -100,7 +100,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
           <div className="flex items-end justify-between gap-3 pt-1">
             <p className={cn("text-lg font-semibold text-foreground tabular-nums", locale === 'fr' ? 'tracking-tight' : '')}>
-              {formattedPrice} FCFA
+              {formattedPrice} FCFA<sup>*</sup>
             </p>
             <span className="text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
               {locale === 'fr' ? 'Détails' : 'Details'}

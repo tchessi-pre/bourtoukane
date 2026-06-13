@@ -11,7 +11,7 @@ export function EditorialBannerSection() {
   return (
     <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <Image src="/images/editorial-banner.jpg" alt="Editorial fashion shot" fill className="object-contain" />
+        <Image src="/images/editorial-banner.png" alt="Editorial fashion shot" fill className="object-contain" />
         <div className="absolute inset-0 bg-foreground/30" />
       </div>
 

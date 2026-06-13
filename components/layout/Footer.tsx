@@ -68,9 +68,19 @@ export function Footer() {
                 {locale === 'fr' ? "Une pièce unique, pour chaque histoire." : 'A unique piece, for every story.'}
               </h2>
               <p className="text-background/60 text-lg max-w-xl leading-relaxed">
-                {locale === 'fr'
-                  ? "Anniversaire, mariage, événement d'entreprise… choisissez votre tissu et votre monture, avec la quantité souhaitée. Nous collaborons aussi avec des opticiens et ophtalmologues agréés."
-                  : "Birthday, wedding, corporate event… choose your fabric and frame, with the quantity you need. We also collaborate with licensed opticians and ophthalmologists."}
+                {locale === 'fr' ? (
+                  <>
+                    Anniversaire, mariage, événement d&apos;entreprise… choisissez votre tissu et votre monture, avec la quantité souhaitée. Les montures peuvent aussi être réalisées avec des verres correcteurs, en collaboration avec des ophtalmologues agréés.
+                    <br />
+                    * Les prix peuvent varier selon la correction et le type de verres.
+                  </>
+                ) : (
+                  <>
+                    Birthday, wedding, corporate event… choose your fabric and frame, with the quantity you need. Frames can also be made with prescription lenses in collaboration with licensed ophthalmologists.
+                    <br />
+                    * Prices may vary depending on the prescription and lens type.
+                  </>
+                )}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-start lg:justify-end">

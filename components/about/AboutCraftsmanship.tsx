@@ -15,7 +15,7 @@ export function AboutCraftsmanship({ t }: AboutCraftsmanshipProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square rounded-lg overflow-hidden">
             <Image
-              src="/images/craftsmanship.jpg"
+              src="/images/craftsmanship.png"
               alt="Artisan at work"
               fill
               className="object-cover"

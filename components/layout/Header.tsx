@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
 import { X, ArrowRight } from 'lucide-react'
 import { BrandLogo } from '@/components/common/BrandLogo'
+import { LanguageToggle } from '@/components/layout/LanguageToggle'
 import { cn } from '@/lib/utils'
 
 export function Header() {
@@ -108,16 +109,7 @@ export function Header() {
 
             {/* Right Side Actions */}
             <div className="flex items-center gap-2">
-              {/* Language Toggle */}
-              <button
-                onClick={() => setLocale(locale === 'fr' ? 'en' : 'fr')}
-                className="relative px-3 py-2 text-sm font-medium uppercase tracking-wider overflow-hidden group"
-              >
-                <span className="relative z-10 transition-colors duration-300 text-muted-foreground group-hover:text-foreground">
-                  {locale === 'fr' ? 'EN' : 'FR'}
-                </span>
-                <span className="absolute inset-0 bg-secondary scale-0 group-hover:scale-100 transition-transform duration-300 ease-out rounded-sm" />
-              </button>
+              <LanguageToggle locale={locale} setLocale={setLocale} />
 
               {/* Divider */}
               <div className="hidden md:block w-px h-5 bg-border mx-2" />

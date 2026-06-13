@@ -272,5 +272,89 @@ export const products: Product[] = [
     material: "Acétate Premium",
     origin: "Mali",
     isNew: true
+  },
+  {
+    id: "addis-abeba",
+    name: {
+      fr: "Addis-Abeba",
+      en: "Addis Ababa"
+    },
+    description: {
+      fr: "Inspirée d'Addis-Abeba, cette monture se distingue par son habillage textile gris, noir et ocre. Son design fin et affirmé en fait une pièce élégante, idéale au quotidien comme avec des verres correcteurs.",
+      en: "Inspired by Addis Ababa, this frame stands out with its gray, black, and ochre textile wrap. Its refined yet confident design makes it an elegant piece for everyday wear, including with prescription lenses."
+    },
+    fabric: {
+      fr: "Chutes de wax récupérées",
+      en: "Upcycled wax scraps"
+    },
+    price: 25000,
+    images: ["/images/products/addis-abeba.png", "/images/products/addis-abeba-2.png"],
+    category: "optical",
+    material: "Acétate Premium",
+    origin: "Ethiopie",
+    isNew: true
+  },
+  {
+    id: "casablanca",
+    name: {
+      fr: "Casablanca",
+      en: "Casablanca"
+    },
+    description: {
+      fr: "Inspirée de Casablanca, cette monture rectangulaire bleu profond associe lignes nettes et habillage textile graphique. Une pièce élégante et structurée, pensée pour sublimer le regard au quotidien.",
+      en: "Inspired by Casablanca, this deep blue rectangular frame combines clean lines with a graphic textile wrap. An elegant, structured piece designed to elevate everyday style."
+    },
+    fabric: {
+      fr: "Chutes de wax récupérées",
+      en: "Upcycled wax scraps"
+    },
+    price: 25000,
+    images: ["/images/products/casablanca.jpeg", "/images/products/casablanca-2.jpeg"],
+    category: "optical",
+    material: "Acétate Premium",
+    origin: "Maroc",
+    isNew: true
+  },
+  {
+    id: "alger",
+    name: {
+      fr: "Alger",
+      en: "Algiers"
+    },
+    description: {
+      fr: "Inspirée d'Alger, cette monture aux accents noir, gris et cuivre affirme un style contemporain. Sa silhouette rectangulaire lui donne une présence forte, idéale pour une allure audacieuse.",
+      en: "Inspired by Algiers, this frame with black, gray, and copper accents delivers a contemporary look. Its rectangular silhouette gives it strong character, ideal for a bold style."
+    },
+    fabric: {
+      fr: "Chutes de wax récupérées",
+      en: "Upcycled wax scraps"
+    },
+    price: 25000,
+    images: ["/images/products/alger.jpeg", "/images/products/alger-2.jpeg"],
+    category: "limited",
+    material: "Acétate Premium",
+    origin: "Algérie",
+    isNew: true
+  },
+  {
+    id: "douala",
+    name: {
+      fr: "Douala",
+      en: "Douala"
+    },
+    description: {
+      fr: "Inspirée de Douala, cette monture ronde bleue joue sur des nuances lumineuses et une forme douce. Un modèle expressif, facile à porter, qui mêle modernité et identité textile.",
+      en: "Inspired by Douala, this blue round frame plays with luminous shades and a soft shape. An expressive, easy-to-wear model that blends modernity with textile identity."
+    },
+    fabric: {
+      fr: "Chutes de wax récupérées",
+      en: "Upcycled wax scraps"
+    },
+    price: 25000,
+    images: ["/images/products/douala.png", "/images/products/douala-2.png"],
+    category: "optical",
+    material: "Acétate Premium",
+    origin: "Cameroun",
+    isNew: true
   }
 ]

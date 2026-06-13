@@ -22,7 +22,12 @@ export function ProductInfo({ t, locale, name, description, price, whatsappLink 
           {name}
         </h1>
         <p className="text-2xl font-medium text-foreground">
-          {price.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')} FCFA
+          {price.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')} FCFA<sup>*</sup>
+        </p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {locale === 'fr'
+            ? 'Les prix peuvent varier selon la correction et le type de verres.'
+            : 'Prices may vary depending on the prescription and lens type.'}
         </p>
       </div>
 
@@ -56,4 +61,3 @@ export function ProductInfo({ t, locale, name, description, price, whatsappLink 
     </div>
   )
 }
-
