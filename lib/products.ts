@@ -309,7 +309,7 @@ export const products: Product[] = [
       en: "Upcycled wax scraps"
     },
     price: 25000,
-    images: ["/images/products/casablanca.jpeg", "/images/products/casablanca-2.jpeg"],
+    images: ["/images/products/casablanca.jpeg", "/images/products/casablanca-2.png"],
     category: "optical",
     material: "Acétate Premium",
     origin: "Maroc",
@@ -330,7 +330,7 @@ export const products: Product[] = [
       en: "Upcycled wax scraps"
     },
     price: 25000,
-    images: ["/images/products/alger.jpeg", "/images/products/alger-2.jpeg"],
+    images: ["/images/products/alger.png", "/images/products/alger-2.png"],
     category: "limited",
     material: "Acétate Premium",
     origin: "Algérie",
