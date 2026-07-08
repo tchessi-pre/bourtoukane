@@ -27,7 +27,7 @@ const siteName = "BOURTOUKANE by Chez Ama's"
 const defaultTitle = 'BOURTOUKANE | Montures artisanales en tissus africain'
 const defaultDescription =
   "BOURTOUKANE by Chez Ama's est une marque portée par Ama Béatrice Alovor : animatrice d'événements, comédienne, traductrice Français - Anglais et coach en positive mindset. Entre l'Afrique et la diaspora, elle crée des montures et accessoires uniques, en valorisant des chutes de tissus récupérées chez les couturières."
-const ogImage = '/images/editorial-banner.png'
+const ogImage = '/images/editorial-banner-og.png'
 
 export const metadata: Metadata = {
   metadataBase,
