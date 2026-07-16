@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
-import { Instagram, Facebook, MessageCircle, ArrowUpRight, Mail, MapPin } from 'lucide-react'
+import { Instagram, Facebook, ArrowUpRight } from 'lucide-react'
 import { BrandLogo } from '@/components/common/BrandLogo'
 
 function TikTokIcon({ className }: { className?: string }) {
@@ -50,6 +50,17 @@ export function Footer() {
     { href: 'https://www.instagram.com/chez_ama_s', icon: Instagram, label: 'Instagram' },
     { href: 'https://www.tiktok.com/@amaalovor', icon: TikTokIcon, label: 'TikTok' },
     { href: 'https://www.facebook.com/ama.alovor', icon: Facebook, label: 'Facebook' },
+  ]
+
+  const representatives = [
+    {
+      name: 'Divine Optic',
+      href: '/about#divine-optic',
+    },
+    {
+      name: 'Glam Ethnik',
+      href: '/about#glam-ethnik',
+    },
   ]
 
   return (
@@ -107,9 +118,9 @@ export function Footer() {
         </div>
 
         {/* Middle Section - Links Grid */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-12">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2 xl:col-span-1">
             <Link href="/" className="inline-block group">
               <BrandLogo variant="footer" />
             </Link>
@@ -183,6 +194,27 @@ export function Footer() {
                   <span>{social.label}</span>
                   <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                 </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Representatives Column */}
+          <div className="md:col-span-2 lg:col-span-4 xl:col-span-1">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-background/70 mb-6">
+              {locale === 'fr' ? 'Représentants' : 'Representatives'}
+            </h3>
+            <div className="flex flex-col gap-4">
+              {representatives.map((representative) => (
+                <Link
+                  key={representative.name}
+                  href={representative.href}
+                  className="group flex items-center gap-2 text-background/80 hover:text-background transition-colors duration-300"
+                >
+                  <span className="h-px w-0 bg-accent group-hover:w-4 transition-all duration-300" />
+                  <span className="text-sm">
+                    {representative.name}
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

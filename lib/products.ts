@@ -38,7 +38,7 @@ export const products: Product[] = [
       fr: "Ankara du Nigeria",
       en: "Nigerian Ankara"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/ankara-gold.jpg", "/images/products/ankara-gold-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
@@ -59,7 +59,7 @@ export const products: Product[] = [
       fr: "Kente du Ghana",
       en: "Ghanaian Kente"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/kente-royal.jpg", "/images/products/kente-royal-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
@@ -80,7 +80,7 @@ export const products: Product[] = [
       fr: "Bogolan du Mali",
       en: "Malian Bogolan"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/bogolan-earth.jpg", "/images/products/bogolan-earth-2.png"],
     category: "optical",
     material: "Acétate Premium",
@@ -100,7 +100,7 @@ export const products: Product[] = [
       fr: "Kitenge de Tanzanie",
       en: "Tanzanian Kitenge"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/kitenge-sunset.jpg", "/images/products/kitenge-sunset-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
@@ -121,7 +121,7 @@ export const products: Product[] = [
       fr: "Wax Hollandais",
       en: "Dutch Wax"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/wax-indigo.jpg", "/images/products/wax-indigo-2.png"],
     category: "optical",
     material: "Acétate Premium",
@@ -142,7 +142,7 @@ export const products: Product[] = [
       fr: "Adire du Nigeria",
       en: "Nigerian Adire"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/adire-ocean.png", "/images/products/adire-ocean-2.png"],
     category: "limited",
     material: "Acétate Premium",
@@ -162,7 +162,7 @@ export const products: Product[] = [
       fr: "Bazin du Sénégal",
       en: "Senegalese Bazin"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/sahel-gold.jpg", "/images/products/sahel-gold-2.png"],
     category: "limited",
     material: "Acétate & Métal",
@@ -183,7 +183,7 @@ export const products: Product[] = [
       fr: "Faso Dan Fani",
       en: "Faso Dan Fani"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/faso-dan-fani.jpg", "/images/products/faso-dan-fani-2.png"],
     category: "optical",
     material: "Acétate Premium",
@@ -203,7 +203,7 @@ export const products: Product[] = [
       fr: "Wax de Côte d’Ivoire",
       en: "Ivorian Wax"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/abidjan.png", "/images/products/abidjan-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
@@ -224,7 +224,7 @@ export const products: Product[] = [
       fr: "Chutes de wax récupérées",
       en: "Upcycled wax scraps"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/lome.jpeg", "/images/products/lome-2.png"],
     category: "sunglasses",
     material: "Acétate Premium",
@@ -245,7 +245,7 @@ export const products: Product[] = [
       fr: "Chutes de wax récupérées",
       en: "Upcycled wax scraps"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/niamey.jpeg", "/images/products/niamey-2.png"],
     category: "optical",
     material: "Acétate & Métal",
@@ -266,7 +266,7 @@ export const products: Product[] = [
       fr: "Chutes de wax récupérées",
       en: "Upcycled wax scraps"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/tonbouktou.jpeg", "/images/products/tonbouktou-2.png"],
     category: "limited",
     material: "Acétate Premium",
@@ -287,7 +287,7 @@ export const products: Product[] = [
       fr: "Chutes de wax récupérées",
       en: "Upcycled wax scraps"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/addis-abeba.png", "/images/products/addis-abeba-2.png"],
     category: "optical",
     material: "Acétate Premium",
@@ -308,7 +308,7 @@ export const products: Product[] = [
       fr: "Chutes de wax récupérées",
       en: "Upcycled wax scraps"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/casablanca.jpeg", "/images/products/casablanca-2.png"],
     category: "optical",
     material: "Acétate Premium",
@@ -329,7 +329,7 @@ export const products: Product[] = [
       fr: "Chutes de wax récupérées",
       en: "Upcycled wax scraps"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/alger.png", "/images/products/alger-2.png"],
     category: "limited",
     material: "Acétate Premium",
@@ -350,7 +350,7 @@ export const products: Product[] = [
       fr: "Chutes de wax récupérées",
       en: "Upcycled wax scraps"
     },
-    price: 25000,
+    price: 90,
     images: ["/images/products/douala.png", "/images/products/douala-2.png"],
     category: "optical",
     material: "Acétate Premium",

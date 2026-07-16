@@ -25,7 +25,11 @@ export function ProductCard({ product }: ProductCardProps) {
         ? t('shop.optical')
         : t('shop.limited')
 
-  const formattedPrice = new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-US').format(product.price)
+  const formattedPrice = new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-US', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0,
+  }).format(product.price)
   const categoryPillClass = cn(
     'rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide backdrop-blur-sm',
     product.category === 'limited'
@@ -100,7 +104,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
           <div className="flex items-end justify-between gap-3 pt-1">
             <p className={cn("text-lg font-semibold text-foreground tabular-nums", locale === 'fr' ? 'tracking-tight' : '')}>
-              {formattedPrice} FCFA<sup>*</sup>
+              {formattedPrice}<sup>*</sup>
             </p>
             <span className="text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
               {locale === 'fr' ? 'Détails' : 'Details'}

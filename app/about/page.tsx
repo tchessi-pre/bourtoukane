@@ -11,6 +11,7 @@ import {
   AboutMissionVision,
   AboutCraftsmanship,
   AboutValues,
+  AboutRepresentatives,
   AboutCta,
 } from '@/components/about/AboutSections'
 
@@ -30,6 +31,7 @@ export default function AboutPage() {
       <AboutMissionVision t={t} />
       <AboutCraftsmanship t={t} />
       <AboutValues t={t} />
+      <AboutRepresentatives t={t} locale={locale} />
       <AboutCta t={t} />
 
       <Footer />

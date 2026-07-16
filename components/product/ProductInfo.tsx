@@ -15,6 +15,12 @@ export type ProductInfoProps = {
 }
 
 export function ProductInfo({ t, locale, name, description, price, whatsappLink }: ProductInfoProps) {
+  const formattedPrice = new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-US', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0,
+  }).format(price)
+
   return (
     <div className="space-y-8">
       <div>
@@ -22,7 +28,7 @@ export function ProductInfo({ t, locale, name, description, price, whatsappLink 
           {name}
         </h1>
         <p className="text-2xl font-medium text-foreground">
-          {price.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')} FCFA<sup>*</sup>
+          {formattedPrice}<sup>*</sup>
         </p>
         <p className="mt-2 text-sm text-muted-foreground">
           {locale === 'fr'

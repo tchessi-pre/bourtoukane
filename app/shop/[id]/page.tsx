@@ -36,10 +36,15 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     .slice(0, 4)
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+22892189269'
+  const formattedPrice = new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-US', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0,
+  }).format(product.price)
   const orderMessage = encodeURIComponent(
     locale === 'fr'
-      ? `Bonjour, je souhaite commander : ${name} (${product.price.toLocaleString('fr-FR')} FCFA)`
-      : `Hello, I would like to order: ${name} (${product.price.toLocaleString('en-US')} FCFA)`
+      ? `Bonjour, je souhaite commander : ${name} (${formattedPrice})`
+      : `Hello, I would like to order: ${name} (${formattedPrice})`
   )
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${orderMessage}`
 
